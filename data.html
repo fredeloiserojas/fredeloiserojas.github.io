@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Toto Macau 4D & 5D · Histori + 6 Siklus</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #0a0e1a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+        .card {
+            max-width: 800px;
+            width: 100%;
+            background: #121a2e;
+            border-radius: 32px;
+            padding: 24px 20px 32px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,215,0,0.12);
+        }
+        h1 {
+            text-align: center;
+            color: #f0dd9e;
+            font-weight: 700;
+            font-size: 1.7rem;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 0 #5f4a1e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        h1 small {
+            font-size: 0.85rem;
+            background: #1f2a44;
+            padding: 4px 16px;
+            border-radius: 40px;
+            color: #b0c7f0;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        .sub {
+            text-align: center;
+            color: #7a90c0;
+            margin: 6px 0 18px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #25304a;
+            padding-bottom: 12px;
+        }
+        .input-area {
+            background: #0e1629;
+            border-radius: 60px;
+            padding: 6px 6px 6px 22px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #33415e;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .input-area label {
+            color: #b3c9ff;
+            font-weight: 500;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .input-area input {
+            flex: 2;
+            min-width: 130px;
+            background: transparent;
+            border: none;
+            padding: 12px 6px;
+            color: #f0f4ff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            outline: none;
+            font-family: 'Courier New', monospace;
+        }
+        .input-area input::placeholder {
+            color: #3a4b6e;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+        .input-area button {
+            background: #e8b83a;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0d1422;
+            cursor: pointer;
+            transition: 0.15s;
+            box-shadow: 0 4px 0 #6b551f;
+            letter-spacing: 0.6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .input-area button:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #6b551f;
+        }
+        .input-area button:hover {
+            background: #f5cc5a;
+        }
+        .info-hint {
+            color: #6b7fa8;
+            font-size: 0.75rem;
+            text-align: right;
+            margin: -4px 10px 12px 10px;
+            letter-spacing: 0.3px;
+        }
+        .histori-area {
+            background: #0e1629;
+            border-radius: 20px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border: 1px solid #25304a;
+        }
+        .histori-area label {
+            color: #8ea3d4;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .histori-area .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+        }
+        .histori-area .input-group input {
+            flex: 1;
+            min-width: 60px;
+            background: #0b111f;
+            border: 1px solid #2a3853;
+            border-radius: 30px;
+            padding: 8px 14px;
+            color: #dce5fc;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            outline: none;
+            transition: 0.2s;
+        }
+        .histori-area .input-group input:focus {
+            border-color: #e8b83a;
+        }
+        .histori-area .input-group input::placeholder {
+            color: #3a4b6e;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+        }
+        .histori-area .input-group button {
+            background: #2a3853;
+            border: none;
+            color: #b0c7f0;
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.2s;
+            border: 1px solid #3a4b6e;
+        }
+        .histori-area .input-group button:hover {
+            background: #3a4b6e;
+            color: #fff;
+        }
+        .histori-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .histori-list .chip {
+            background: #1b253f;
+            color: #b0c7f0;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #2a3853;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .histori-list .chip .del {
+            cursor: pointer;
+            color: #e06060;
+            font-weight: 700;
+            font-size: 0.9rem;
+            line-height: 1;
+        }
+        .histori-list .chip .del:hover {
+            color: #ff8080;
+        }
+        .siklus-badge {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .siklus-badge span {
+            background: #1b253f;
+            color: #8ea3d4;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid #31415f;
+        }
+        .siklus-badge span.active {
+            background: #e8b83a;
+            color: #0c1424;
+            border-color: #e8b83a;
+            box-shadow: 0 0 12px rgba(232, 184, 58, 0.3);
+        }
+        .result-box {
+            background: #0b111f;
+            border-radius: 24px;
+            padding: 16px 14px 10px;
+            border: 1px solid #2a3853;
+            box-shadow: inset 0 4px 12px rgba(0,0,0,0.6);
+        }
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            color: #9ab0df;
+            font-weight: 500;
+            padding: 0 4px 10px 4px;
+            border-bottom: 1px solid #1e2940;
+            font-size: 0.9rem;
+        }
+        .result-header span:last-child {
+            background: #1a2440;
+            padding: 0 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #c8d6fc;
+        }
+        #predictionList {
+            list-style: none;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        #predictionList li {
+            background: #111b30;
+            padding: 10px 16px;
+            border-radius: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid #f5c542;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            color: #dce5fc;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: 1.2px;
+        }
+        #predictionList li .badge {
+            background: #25314f;
+            padding: 2px 14px;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #b0c7f7;
+            letter-spacing: 0.3px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        #predictionList li .strength {
+            color: #f5d77b;
+            font-size: 0.7rem;
+            background: #1b263f;
+            padding: 2px 12px;
+            border-radius: 30px;
+            font-weight: 400;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        #predictionList li .rank-icon {
+            margin-right: 4px;
+            font-size: 0.9rem;
+        }
+        .empty-state {
+            color: #4a5d84;
+            text-align: center;
+            padding: 24px 10px;
+            font-style: italic;
+            font-size: 0.95rem;
+            font-family: 'Segoe UI', sans-serif;
+            letter-spacing: 0.4px;
+            border-left-color: #2a3853 !important;
+        }
+        .footnote {
+            margin-top: 16px;
+            text-align: center;
+            color: #33466b;
+            font-size: 0.7rem;
+            border-top: 1px solid #1a243b;
+            padding-top: 14px;
+            letter-spacing: 0.5px;
+        }
+        .footnote i {
+            color: #5670a0;
+        }
+        @media (max-width: 500px) {
+            .card { padding: 18px 12px; }
+            .input-area { padding: 4px 4px 4px 14px; }
+            .input-area input { font-size: 1rem; min-width: 70px; letter-spacing: 1px; }
+            .input-area button { padding: 10px 16px; font-size: 0.85rem; }
+            #predictionList li { font-size: 0.9rem; padding: 8px 12px; flex-wrap: wrap; gap: 4px; }
+            .siklus-badge span { font-size: 0.6rem; padding: 2px 10px; }
+            .histori-area .input-group input { font-size: 0.8rem; padding: 6px 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>
+        🎯 TOTO MACAU
+        <small>4D · 5D</small>
+    </h1>
+    <div class="sub">🔮 6 siklus undian/hari · analisis histori</div>
+
+    <!-- Input angka terakhir -->
+    <div class="input-area">
+        <label for="lastDraw">🔢 Terakhir</label>
+        <input type="text" id="lastDraw" placeholder="cth: 12345" maxlength="5" inputmode="numeric" value="27814">
+        <button id="predictBtn">▶ Prediksi</button>
+    </div>
+    <div class="info-hint">↳ masukkan 4 atau 5 digit angka terakhir yang keluar</div>
+
+    <!-- Histori angka sebelumnya -->
+    <div class="histori-area">
+        <label>📊 Histori Angka Sebelumnya (opsional, untuk analisis tren)</label>
+        <div class="input-group">
+            <input type="text" id="historiInput" placeholder="cth: 12345" maxlength="5" inputmode="numeric">
+            <button id="addHistoriBtn">+ Tambah</button>
+            <button id="clearHistoriBtn" style="background:#3a2a2a;border-color:#5a3a3a;">✕ Hapus</button>
+        </div>
+        <div class="histori-list" id="historiList"></div>
+        <div style="font-size:0.65rem;color:#4a5d84;margin-top:4px;">* Semakin banyak histori, semakin akurat analisis pergerakan</div>
+    </div>
+
+    <!-- indikator 6 siklus -->
+    <div class="siklus-badge" id="siklusIndicator">
+        <span class="active">S1</span>
+        <span>S2</span>
+        <span>S3</span>
+        <span>S4</span>
+        <span>S5</span>
+        <span>S6</span>
+    </div>
+
+    <div class="result-box">
+        <div class="result-header">
+            <span>🏆 10 prediksi terkuat</span>
+            <span id="countLabel">0</span>
+        </div>
+        <ul id="predictionList">
+            <li class="empty-state">⚡ masukkan angka & klik prediksi</li>
+        </ul>
+    </div>
+    <div class="footnote">
+        <i>simulasi algoritma · 20+ rumus toto · analisis dari histori & siklus</i>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const inputField = document.getElementById('lastDraw');
+        const predictBtn = document.getElementById('predictBtn');
+        const predictionList = document.getElementById('predictionList');
+        const countLabel = document.getElementById('countLabel');
+        const siklusSpans = document.querySelectorAll('#siklusIndicator span');
+        const historiInput = document.getElementById('historiInput');
+        const addHistoriBtn = document.getElementById('addHistoriBtn');
+        const clearHistoriBtn = document.getElementById('clearHistoriBtn');
+        const historiListEl = document.getElementById('historiList');
+
+        // === state histori ===
+        let historiData = [];
+
+        // === load histori dari localStorage ===
+        function loadHistori() {
+            try {
+                const saved = localStorage.getItem('toto_histori');
+                if (saved) {
+                    historiData = JSON.parse(saved);
+                    if (!Array.isArray(historiData)) historiData = [];
+                }
+            } catch (e) { historiData = []; }
+            renderHistori();
+        }
+
+        function saveHistori() {
+            try {
+                localStorage.setItem('toto_histori', JSON.stringify(historiData));
+            } catch (e) {}
+            renderHistori();
+        }
+
+        function renderHistori() {
+            historiListEl.innerHTML = '';
+            if (historiData.length === 0) {
+                const empty = document.createElement('span');
+                empty.style.color = '#3a4b6e';
+                empty.style.fontSize = '0.75rem';
+                empty.textContent = 'belum ada histori';
+                historiListEl.appendChild(empty);
+                return;
+            }
+            historiData.forEach((item, idx) => {
+                const chip = document.createElement('span');
+                chip.className = 'chip';
+                chip.innerHTML = `${item} <span class="del" data-idx="${idx}">×</span>`;
+                chip.querySelector('.del').addEventListener('click', function(e) {
+                    const index = parseInt(this.dataset.idx);
+                    historiData.splice(index, 1);
+                    saveHistori();
+                });
+                historiListEl.appendChild(chip);
+            });
+        }
+
+        function addHistori() {
+            const raw = historiInput.value.trim().replace(/\D/g, '');
+            if (raw.length >= 4 && raw.length <= 5) {
+                if (!historiData.includes(raw)) {
+                    historiData.push(raw);
+                    saveHistori();
+                }
+                historiInput.value = '';
+            } else {
+                alert('Masukkan 4 atau 5 digit angka');
+            }
+        }
+
+        addHistoriBtn.addEventListener('click', addHistori);
+        historiInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addHistori();
+            }
+        });
+        clearHistoriBtn.addEventListener('click', () => {
+            historiData = [];
+            saveHistori();
+        });
+
+        // === utilitas ===
+        function padNumber(num, length) {
+            return String(num).padStart(length, '0');
+        }
+
+        // === generate dari histori + angka terakhir ===
+        function generateAllPredictions(lastDigits, historis) {
+            const raw = String(lastDigits).replace(/\D/g, '');
+            if (raw.length < 4) return [];
+
+            const seedStr = raw.slice(-5);
+            const seedLen = seedStr.length;
+            if (seedLen < 4) return [];
+
+            // gabungkan histori dengan angka terakhir untuk analisis
+            const allDigits = [seedStr, ...historis];
+            // filter yang valid
+            const validHist = allDigits.filter(d => d.length >= 4 && d.length <= 5);
+
+            const seedDigits = seedStr.split('').map(Number);
+            const baseNum = parseInt(seedStr, 10);
+
+            // kumpulkan semua kandidat dari 6 siklus
+            const allPredictions = [];
+
+            for (let s = 0; s < 6; s++) {
+                const offset = (s * 7 + 13) % 10;
+                const offset2 = (s * 11 + 5) % 10;
+                const candidates = [];
+
+                function addCandidate(num, method, weight = 1) {
+                    let str = String(num);
+                    while (str.length < seedLen) str = '0' + str;
+                    if (str.length > seedLen) str = str.slice(-seedLen);
+                    if (!candidates.some(c => c.value === str)) {
+                        candidates.push({ value: str, method, weight });
+                    }
+                }
+
+                // ---- RUMUS (20+) ----
+                // 1. Rotasi
+                for (let sh = 1; sh < seedLen; sh++) {
+                    const rot = [...seedDigits.slice(sh), ...seedDigits.slice(0, sh)];
+                    addCandidate(parseInt(rot.join(''), 10), 'rotasi', 3);
+                    const rotR = [...seedDigits.slice(-sh), ...seedDigits.slice(0, -sh)];
+                    addCandidate(parseInt(rotR.join(''), 10), 'rotasiR', 3);
+                }
+
+                // 2. Mirror & Reverse
+                const mirror = seedDigits.map(d => 9 - d);
+                addCandidate(parseInt(mirror.join(''), 10), 'cermin', 5);
+                const rev = seedDigits.slice().reverse();
+                addCandidate(parseInt(rev.join(''), 10), 'reverse', 4);
+
+                // 3. Statistik
+                const sumAll = seedDigits.reduce((a, b) => a + b, 0);
+                const sumMod = sumAll % 10;
+                const prod = seedDigits.reduce((a, b) => a * b, 1);
+                const prodMod = prod % 10;
+                const avg = Math.round(sumAll / seedLen) % 10;
+
+                if (seedLen === 4) {
+                    const d0 = seedDigits[0], d1 = seedDigits[1], d2 = seedDigits[2], d3 = seedDigits[3];
+                    addCandidate(parseInt(`${sumMod}${prodMod}${avg}${(d0+d1+d2+d3)%10}`, 10), 'statTotal', 4);
+                    addCandidate(parseInt(`${(d0+d1)%10}${(d2+d3)%10}${sumMod}${prodMod}`, 10), 'statPair', 4);
+                    addCandidate(parseInt(`${(d0+d2)%10}${(d1+d3)%10}${(d0+d3)%10}${(d1+d2)%10}`, 10), 'crossSum', 3);
+                    addCandidate(parseInt(`${(d0+d1+d2)%10}${(d1+d2+d3)%10}${(d0+d2+d3)%10}${(d0+d1+d3)%10}`, 10), 'tripleSum', 3);
+                    // AI 4D
+                    addCandidate(parseInt(`${(d0+d1)%10}${(d1+d2)%10}${(d2+d3)%10}${(d3+d0)%10}`, 10), 'AI4D', 4);
+                    addCandidate(parseInt(`${(d0+d2)%10}${(d1+d3)%10}${(d0+d3)%10}${(d1+d2)%10}`, 10), 'AI4D_cross', 4);
+                } else if (seedLen === 5) {
+                    const d0 = seedDigits[0], d1 = seedDigits[1], d2 = seedDigits[2], d3 = seedDigits[3], d4 = seedDigits[4];
+                    addCandidate(parseInt(`${sumMod}${prodMod}${avg}${(d0+d1+d2)%10}${(d3+d4)%10}`, 10), 'stat5', 4);
+                    addCandidate(parseInt(`${(d0+d1)%10}${(d2+d3)%10}${(d4+d0)%10}${(d1+d2)%10}${(d3+d4)%10}`, 10), 'pairChain5', 4);
+                    addCandidate(parseInt(`${(d0+d4)%10}${(d1+d3)%10}${(d2+d0)%10}${(d3+d1)%10}${(d4+d2)%10}`, 10), 'mirrorPair5', 3);
+                    addCandidate(parseInt(`${(d0+d1+d2+d3)%10}${(d1+d2+d3+d4)%10}${(d0+d2+d4)%10}${(d0+d3+d4)%10}${(d1+d2+d4)%10}`, 10), 'multiSum5', 3);
+                    addCandidate(parseInt(`${(d0+d1+d2)%10}${(d1+d2+d3)%10}${(d2+d3+d4)%10}${(d3+d4+d0)%10}${(d4+d0+d1)%10}`, 10), 'triple5', 4);
+                }
+
+                // 4. Fibonacci
+                const fib = [];
+                for (let i = 0; i < seedLen; i++) {
+                    if (i < 2) fib.push(seedDigits[i] % 10);
+                    else fib.push((fib[i-1] + fib[i-2]) % 10);
+                }
+                addCandidate(parseInt(fib.join(''), 10), 'fibonacci', 4);
+
+                // 5. Selisih
+                const diff = [];
+                for (let i = 0; i < seedLen - 1; i++) {
+                    diff.push(Math.abs(seedDigits[i] - seedDigits[i+1]) % 10);
+                }
+                while (diff.length < seedLen) diff.push(seedDigits[diff.length % seedLen]);
+                addCandidate(parseInt(diff.join(''), 10), 'selisih', 3);
+
+                // 6. Ujung sum
+                const pairSum = [];
+                for (let i = 0; i < Math.ceil(seedLen/2); i++) {
+                    const j = seedLen - 1 - i;
+                    if (i === j) pairSum.push(seedDigits[i] % 10);
+                    else pairSum.push((seedDigits[i] + seedDigits[j]) % 10);
+                }
+                while (pairSum.length < seedLen) pairSum.push(seedDigits[pairSum.length % seedLen]);
+                addCandidate(parseInt(pairSum.join(''), 10), 'ujungSum', 3);
+
+                // 7. Offset siklus
+                const offsetDigits = seedDigits.map((d, idx) => (d + offset + idx) % 10);
+                addCandidate(parseInt(offsetDigits.join(''), 10), `siklus${s+1}`, 5);
+                const offsetDigits2 = seedDigits.map((d, idx) => (d + offset2 + (idx * 2)) % 10);
+                addCandidate(parseInt(offsetDigits2.join(''), 10), `siklus${s+1}b`, 4);
+
+                // 8. Plus variasi
+                for (let i = 0; i < 3; i++) {
+                    const extra = (baseNum + (s * 13) + (i * 37) + 7) % Math.pow(10, seedLen);
+                    addCandidate(extra, `plus${i+1}`, 2);
+                }
+
+                // 9. Genap/ganjil
+                const evenDigits = seedDigits.filter(d => d % 2 === 0);
+                const oddDigits = seedDigits.filter(d => d % 2 !== 0);
+                if (evenDigits.length > 0 && oddDigits.length > 0) {
+                    const mix = [];
+                    for (let i = 0; i < seedLen; i++) {
+                        if (i % 2 === 0) mix.push(evenDigits[i % evenDigits.length]);
+                        else mix.push(oddDigits[i % oddDigits.length]);
+                    }
+                    addCandidate(parseInt(mix.join(''), 10), 'genapGanjil', 3);
+                }
+
+                // === ANALISIS DARI HISTORI ===
+                if (validHist.length > 1) {
+                    // hitung frekuensi digit dari histori
+                    const freqMap = {};
+                    validHist.forEach(h => {
+                        h.split('').forEach(d => {
+                            freqMap[d] = (freqMap[d] || 0) + 1;
+                        });
+                    });
+                    // cari digit paling sering
+                    const sortedFreq = Object.entries(freqMap).sort((a, b) => b[1] - a[1]);
+                    if (sortedFreq.length >= seedLen) {
+                        const topDigits = sortedFreq.slice(0, seedLen).map(item => parseInt(item[0]));
+                        addCandidate(parseInt(topDigits.join(''), 10), 'historiFreq', 6);
+                    }
+                    // analisis selisih dari histori
+                    const histDiffs = [];
+                    for (let i = 1; i < validHist.length; i++) {
+                        const prev = validHist[i-1].split('').map(Number);
+                        const curr = validHist[i].split('').map(Number);
+                        for (let j = 0; j < Math.min(prev.length, curr.length); j++) {
+                            histDiffs.push((curr[j] - prev[j] + 10) % 10);
+                        }
+                    }
+                    if (histDiffs.length >= seedLen) {
+                        const diffPattern = histDiffs.slice(0, seedLen);
+                        const newNum = seedDigits.map((d, idx) => (d + diffPattern[idx % diffPattern.length]) % 10);
+                        addCandidate(parseInt(newNum.join(''), 10), 'historiDiff', 5);
+                    }
+                }
+
+                // scoring
+                const scored = candidates.map(c => {
+                    let score = c.weight * 2;
+                    const digits = c.value.split('').map(Number);
+                    const freq = digits.reduce((acc, d) => acc + (seedDigits.includes(d) ? 1 : 0), 0);
+                    score += freq * 1.5;
+                    if (c.method.includes('cermin') || c.method.includes('reverse')) score += 4;
+                    if (c.method.includes('stat')) score += 3;
+                    if (c.method.includes('siklus')) score += 3;
+                    if (c.method.includes('AI')) score += 3;
+                    if (c.method.includes('histori')) score += 5;
+                    return { ...c, score };
+                });
+
+                scored.sort((a, b) => b.score - a.score);
+                const topSiklus = scored.slice(0, 8);
+                allPredictions.push(...topSiklus);
+            }
+
+            // gabungkan & ranking
+            const merged = new Map();
+            allPredictions.forEach(p => {
+                if (merged.has(p.value)) {
+                    const existing = merged.get(p.value);
+                    existing.count += 1;
+                    existing.score += p.score;
+                    if (!existing.methods.includes(p.method)) existing.methods.push(p.method);
+                } else {
+                    merged.set(p.value, {
+                        value: p.value,
+                        count: 1,
+                        score: p.score,
+                        methods: [p.method]
+                    });
+                }
+            });
+
+            const result = Array.from(merged.values()).map(item => {
+                const bonus = item.count * 5;
+                return {
+                    value: item.value,
+                    score: item.score + bonus,
+                    count: item.count,
+                    methods: item.methods
+                };
+            });
+
+            result.sort((a, b) => b.score - a.score);
+            const top10 = result.slice(0, 10);
+
+            while (top10.length < 10) {
+                const fallback = (baseNum + top10.length * 53 + 17) % Math.pow(10, seedLen);
+                const fbStr = String(fallback).padStart(seedLen, '0');
+                if (!top10.some(p => p.value === fbStr)) {
+                    top10.push({ value: fbStr, score: 1, count: 0, methods: ['fallback'] });
+                }
+            }
+
+            return top10.map((p, idx) => ({
+                value: p.value,
+                label: `#${idx+1}`,
+                method: p.methods ? p.methods.slice(0, 2).join('+') : 'kombinasi',
+                strength: p.count > 1 ? `${p.count}x siklus` : ''
+            }));
+        }
+
+        // === render ===
+        function renderPredictions(preds) {
+            predictionList.innerHTML = '';
+            if (!preds || preds.length === 0) {
+                predictionList.innerHTML = '<li class="empty-state">🔍 masukkan 4 atau 5 digit angka</li>';
+                countLabel.textContent = '0';
+                return;
+            }
+            countLabel.textContent = preds.length;
+            preds.forEach((p, index) => {
+                const li = document.createElement('li');
+                const rankIcon = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '▫️';
+                const strengthText = p.strength || p.method || '';
+                li.innerHTML = `
+                    <span><span class="rank-icon">${rankIcon}</span> ${p.value}</span>
+                    <span class="badge">${p.label}</span>
+                    <span class="strength">${strengthText}</span>
+                `;
+                predictionList.appendChild(li);
+            });
+        }
+
+        function updateSiklusIndicator() {
+            siklusSpans.forEach(span => span.classList.add('active'));
+        }
+
+        function handlePredict() {
+            const rawValue = inputField.value.trim();
+            const digitsOnly = rawValue.replace(/\D/g, '');
+            if (digitsOnly.length < 4) {
+                predictionList.innerHTML = '<li class="empty-state">⚠️ minimal 4 digit (contoh: 1234)</li>';
+                countLabel.textContent = '0';
+                return;
+            }
+            const lastDigits = digitsOnly.slice(-5);
+            const preds = generateAllPredictions(lastDigits, historiData);
+            renderPredictions(preds);
+            updateSiklusIndicator();
+        }
+
+        predictBtn.addEventListener('click', handlePredict);
+        inputField.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handlePredict();
+            }
+        });
+
+        // === init ===
+        loadHistori();
+        window.addEventListener('DOMContentLoaded', () => {
+            handlePredict();
+            updateSiklusIndicator();
+        });
+    })();
+</script>
+</body>
+</html>
