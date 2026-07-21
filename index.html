@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prediktor 4D - 10 Angka</title>
+    <title>Prediktor 4D - Segala Metode</title>
     <style>
         * {
             box-sizing: border-box;
@@ -14,26 +14,26 @@
             background: linear-gradient(145deg, #0b0e1a, #1a1f2f);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 15px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .card {
             background: rgba(26, 31, 47, 0.92);
             backdrop-filter: blur(8px);
-            max-width: 820px;
-            width: 100%;
-            border-radius: 40px;
-            padding: 30px 25px 35px;
+            border-radius: 32px;
+            padding: 25px 22px 30px;
             border: 1px solid #f1c40f30;
             color: #f0ece3;
+            margin-bottom: 20px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
         }
         h1 {
             text-align: center;
-            font-weight: 600;
-            font-size: 2rem;
+            font-weight: 700;
+            font-size: 1.8rem;
             color: #f7e05e;
             text-shadow: 0 0 20px #f1c40f70;
             letter-spacing: 2px;
@@ -42,19 +42,21 @@
             text-align: center;
             font-size: 0.8rem;
             color: #a7a9be;
-            margin-bottom: 22px;
+            margin-bottom: 18px;
             border-bottom: 1px dashed #f1c40f30;
-            padding-bottom: 14px;
+            padding-bottom: 12px;
         }
+
+        /* Input */
         .input-area {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .input-area input {
             flex: 2;
-            padding: 16px 18px;
+            padding: 14px 16px;
             border-radius: 60px;
             border: 1px solid #3d455f;
             background: #0d1020;
@@ -64,92 +66,168 @@
             letter-spacing: 6px;
             outline: none;
             font-weight: 700;
+            min-width: 150px;
         }
         .input-area input:focus {
             border-color: #f1c40f;
             box-shadow: 0 0 20px #f1c40f20;
         }
+        .input-area select {
+            flex: 1;
+            padding: 14px 16px;
+            border-radius: 60px;
+            border: 1px solid #3d455f;
+            background: #0d1020;
+            color: #f0ece3;
+            font-size: 0.95rem;
+            outline: none;
+            min-width: 120px;
+            cursor: pointer;
+        }
+        .input-area select:focus {
+            border-color: #f1c40f;
+        }
         .input-area button {
             flex: 1;
-            padding: 16px 20px;
+            padding: 14px 20px;
             border-radius: 60px;
             border: none;
             background: #f1c40f;
             color: #0b0e1a;
             font-weight: 800;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: 0.15s;
-            min-width: 120px;
+            min-width: 100px;
         }
         .input-area button:hover {
             background: #f7d44a;
             transform: scale(1.02);
         }
-
         .btn-group {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin: 12px 0 22px;
+            margin: 10px 0 16px;
         }
         .btn-group button {
             flex: 1;
-            padding: 14px 18px;
+            padding: 12px 16px;
             border-radius: 60px;
             border: 1px solid #3d455f;
             background: #20273d;
             color: #f0ece3;
             font-weight: 700;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             transition: 0.1s;
-            min-width: 100px;
+            min-width: 80px;
         }
         .btn-group button:active {
-            transform: translateY(4px);
+            transform: translateY(3px);
         }
         .btn-primary {
             background: #f1c40f !important;
             color: #0b0e1a !important;
             border-color: #f7d44a !important;
-            box-shadow: 0 6px 0 #9e7d0a;
+            box-shadow: 0 4px 0 #9e7d0a;
         }
         .btn-secondary {
             background: #2a3350 !important;
             border-color: #4a5477 !important;
         }
+        .btn-danger {
+            background: #c0392b !important;
+            border-color: #e74c3c !important;
+        }
 
-        /* Tabel prediksi */
+        /* Checkbox metode */
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px 14px;
+            margin: 12px 0 16px;
+            padding: 14px 16px;
+            background: #0d1020;
+            border-radius: 20px;
+            border: 1px solid #1f263b;
+        }
+        .method-grid label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #bcc0d0;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+        .method-grid label:hover {
+            color: #f0ece3;
+        }
+        .method-grid input[type="checkbox"] {
+            accent-color: #f1c40f;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .method-grid .all-toggle {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 6px 0 2px;
+            border-bottom: 1px solid #1f263b;
+            margin-bottom: 6px;
+        }
+        .method-grid .all-toggle button {
+            background: none;
+            border: 1px solid #3d455f;
+            color: #a7a9be;
+            padding: 4px 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+        .method-grid .all-toggle button:hover {
+            background: #2a3350;
+            color: #fff;
+        }
+
+        /* Tabel hasil */
         .table-wrap {
             overflow-x: auto;
-            margin-top: 12px;
-            border-radius: 24px;
+            border-radius: 20px;
             border: 1px solid #2a3350;
             background: #0d1020;
+            margin-top: 10px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
-            min-width: 600px;
+            font-size: 0.85rem;
+            min-width: 700px;
         }
         th {
             background: #1a1f2f;
             color: #f7e05e;
-            padding: 14px 8px;
+            padding: 12px 6px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            font-size: 0.65rem;
             border-bottom: 2px solid #f1c40f40;
+            position: sticky;
+            top: 0;
+            z-index: 5;
         }
         td {
-            padding: 12px 6px;
+            padding: 10px 5px;
             text-align: center;
             border-bottom: 1px solid #1f263b;
             font-family: 'Courier New', monospace;
             font-weight: 500;
+            font-size: 0.85rem;
         }
         tr:last-child td {
             border-bottom: none;
@@ -158,10 +236,10 @@
             background: #1a1f2f50;
         }
         .col-main {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #f7e05e;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
         .col-mistik {
             color: #b48aff;
@@ -171,6 +249,30 @@
         }
         .col-tesson {
             color: #ffb07c;
+        }
+        .col-shio {
+            color: #7bed9f;
+        }
+        .col-neptu {
+            color: #ffa502;
+        }
+        .col-status {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+        .status-hot {
+            background: #e74c3c40;
+            color: #ff6b6b;
+        }
+        .status-cold {
+            background: #3498db40;
+            color: #6fcbff;
+        }
+        .status-mati {
+            background: #2d343650;
+            color: #636e72;
         }
         .no-data {
             text-align: center;
@@ -183,98 +285,240 @@
             font-size: 0.7rem;
             text-align: center;
             color: #6a7290;
-            margin-top: 24px;
+            margin-top: 18px;
             border-top: 1px solid #1f263b;
-            padding-top: 18px;
+            padding-top: 16px;
         }
         .footer-note span {
             color: #f1c40f90;
         }
 
-        @media (max-width: 600px) {
+        .badge-count {
+            background: #f1c40f30;
+            color: #f7e05e;
+            padding: 2px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+        }
+
+        @media (max-width: 700px) {
             .card {
-                padding: 18px 14px;
+                padding: 16px 12px;
             }
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
             .input-area input {
                 font-size: 1rem;
                 letter-spacing: 3px;
-                padding: 14px;
+                padding: 12px;
             }
-            .input-area button {
-                font-size: 0.9rem;
-                padding: 14px;
+            .input-area select {
+                font-size: 0.8rem;
+                padding: 12px;
+            }
+            .method-grid {
+                grid-template-columns: 1fr 1fr;
+                padding: 10px;
+            }
+            .method-grid label {
+                font-size: 0.7rem;
             }
             th,
             td {
-                padding: 10px 4px;
-                font-size: 0.75rem;
+                padding: 8px 4px;
+                font-size: 0.7rem;
             }
             .col-main {
-                font-size: 1rem;
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 450px) {
+            .method-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>🧿 PREDIKSI 4D</h1>
-        <div class="sub">10 Angka • Berbasis Result • Mistik • Index • Tesson</div>
+    <div class="container">
+        <div class="card">
+            <h1>🧿 PREDIKTOR 4D</h1>
+            <div class="sub">Segala Metode • 14+ Rumus • 10-50 Angka Prediksi</div>
 
-        <!-- Input Result -->
-        <div class="input-area">
-            <input type="text" id="resultInput" placeholder="0000" maxlength="4" value="1234" />
-            <button id="processBtn">▶ Proses & Prediksi</button>
-        </div>
+            <!-- Input -->
+            <div class="input-area">
+                <input type="text" id="resultInput" placeholder="0000" maxlength="4" value="1234" />
+                <select id="hariSelect">
+                    <option value="Senin">Senin</option>
+                    <option value="Selasa">Selasa</option>
+                    <option value="Rabu">Rabu</option>
+                    <option value="Kamis">Kamis</option>
+                    <option value="Jumat">Jumat</option>
+                    <option value="Sabtu">Sabtu</option>
+                    <option value="Minggu">Minggu</option>
+                </select>
+                <select id="pasaranSelect">
+                    <option value="Legi">Legi</option>
+                    <option value="Pahing">Pahing</option>
+                    <option value="Pon">Pon</option>
+                    <option value="Wage">Wage</option>
+                    <option value="Kliwon">Kliwon</option>
+                </select>
+                <button id="processBtn">▶ Proses</button>
+            </div>
 
-        <!-- Tombol -->
-        <div class="btn-group">
-            <button class="btn-primary" id="randomBtn">🎲 Generate Acak</button>
-            <button class="btn-secondary" id="resetBtn">⟲ Reset</button>
-        </div>
+            <!-- Tombol -->
+            <div class="btn-group">
+                <button class="btn-primary" id="randomBtn">🎲 Random</button>
+                <button class="btn-secondary" id="historyBtn">📊 Pakai History</button>
+                <button class="btn-danger" id="resetBtn">⟲ Reset</button>
+            </div>
 
-        <!-- Tabel 10 Prediksi -->
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>🔢 Angka</th>
-                        <th>🔮 Mistik</th>
-                        <th>📌 Index</th>
-                        <th>🧩 Tesson</th>
-                    </tr>
-                </thead>
-                <tbody id="predictionBody">
-                    <tr><td colspan="5" class="no-data">Masukkan angka result lalu klik Proses</td></tr>
-                </tbody>
-            </table>
-        </div>
+            <!-- Checkbox Metode -->
+            <div class="method-grid" id="methodGrid">
+                <div class="all-toggle">
+                    <button id="selectAllBtn">✅ Pilih Semua</button>
+                    <button id="deselectAllBtn">❌ Hapus Semua</button>
+                </div>
+                <!-- akan diisi JS -->
+            </div>
 
-        <div class="footer-note">
-            ⚡ <span>Hanya hiburan</span> • Prediksi tidak menjamin kemenangan • Hasil undian murni acak
+            <!-- Hasil -->
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:6px;">
+                <span style="font-size:0.9rem; color:#a7a9be;">Total Prediksi: <strong id="totalPrediksi" style="color:#f7e05e;">0</strong></span>
+                <span style="font-size:0.8rem; color:#6a7290;">Klik kolom angka untuk salin</span>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>🔢 Angka</th>
+                            <th>🔮 Mistik</th>
+                            <th>📌 Index</th>
+                            <th>🧩 Tesson</th>
+                            <th>🐉 Shio</th>
+                            <th>🌙 Neptu</th>
+                            <th>📊 Status</th>
+                            <th>📝 Metode</th>
+                        </tr>
+                    </thead>
+                    <tbody id="predictionBody">
+                        <tr><td colspan="9" class="no-data">Masukkan angka result lalu klik Proses</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer-note">
+                ⚡ <span>Hanya hiburan</span> • Semua prediksi tidak menjamin kemenangan • Hasil undian murni acak
+            </div>
         </div>
     </div>
 
     <script>
         (function() {
-            // ----- KAMUS -----
+            // ============================================================
+            // 1. KAMUS & DATA
+            // ============================================================
+
+            // Mistik
             const MISTIK_MAP = { '0': '8', '1': '6', '2': '4', '3': '7', '4': '2', '5': '9', '6': '1', '7': '3', '8': '0',
                 '9': '5' };
+            // Index
             const INDEX_MAP = { '0': '5', '1': '6', '2': '7', '3': '8', '4': '9', '5': '0', '6': '1', '7': '2', '8': '3',
                 '9': '4' };
 
-            // ----- ELEMEN -----
+            // Shio (tahun 2024 = Naga, 2025 = Ular, dst) - mapping digit terakhir tahun
+            const SHIO_MAP = {
+                '0': 'Tikus',
+                '1': 'Kerbau',
+                '2': 'Macan',
+                '3': 'Kelinci',
+                '4': 'Naga',
+                '5': 'Ular',
+                '6': 'Kuda',
+                '7': 'Kambing',
+                '8': 'Monyet',
+                '9': 'Ayam'
+            };
+            // Angka shio (masing-masing shio punya 2 angka main)
+            const SHIO_ANGKA = {
+                'Tikus': [2, 14, 26, 38, 50, 62, 74, 86, 98],
+                'Kerbau': [1, 13, 25, 37, 49, 61, 73, 85, 97],
+                'Macan': [3, 15, 27, 39, 51, 63, 75, 87, 99],
+                'Kelinci': [4, 16, 28, 40, 52, 64, 76, 88, 0],
+                'Naga': [5, 17, 29, 41, 53, 65, 77, 89],
+                'Ular': [6, 18, 30, 42, 54, 66, 78, 90],
+                'Kuda': [7, 19, 31, 43, 55, 67, 79, 91],
+                'Kambing': [8, 20, 32, 44, 56, 68, 80, 92],
+                'Monyet': [9, 21, 33, 45, 57, 69, 81, 93],
+                'Ayam': [10, 22, 34, 46, 58, 70, 82, 94],
+                'Anjing': [11, 23, 35, 47, 59, 71, 83, 95],
+                'Babi': [12, 24, 36, 48, 60, 72, 84, 96]
+            };
+
+            // Neptu hari & pasaran
+            const NEPTU_HARI = { 'Senin': 4, 'Selasa': 3, 'Rabu': 7, 'Kamis': 8, 'Jumat': 6, 'Sabtu': 9, 'Minggu': 5 };
+            const NEPTU_PASARAN = { 'Legi': 5, 'Pahing': 9, 'Pon': 7, 'Wage': 4, 'Kliwon': 8 };
+
+            // Daftar metode
+            const METODE_LIST = [
+                { id: 'metode_asli', label: '🔵 Angka Asli' },
+                { id: 'metode_mistik', label: '🔮 Mistik' },
+                { id: 'metode_index', label: '📌 Index' },
+                { id: 'metode_tesson', label: '🧩 Tesson' },
+                { id: 'metode_tesson2', label: '🧩 Tesson 2' },
+                { id: 'metode_tesson3', label: '🧩 Tesson 3' },
+                { id: 'metode_kop_kepala_ekor', label: '🔢 Kop+Kepala+Ekor' },
+                { id: 'metode_2d', label: '📊 2D' },
+                { id: 'metode_3d', label: '📊 3D' },
+                { id: 'metode_shio', label: '🐉 Shio' },
+                { id: 'metode_neptu', label: '🌙 Neptu/Weton' },
+                { id: 'metode_a1a2b1b2', label: '🔀 A1-A2-B1-B2' },
+                { id: 'metode_statistik', label: '📈 Statistik/Frekuensi' },
+                { id: 'metode_ai', label: '🤖 AI (Angka Jadi)' },
+                { id: 'metode_7x24', label: '✖️ 7×24' },
+                { id: 'metode_4x24', label: '✖️ 4×24' },
+                { id: 'metode_2d_depan', label: '📌 2D Depan' },
+                { id: 'metode_2d_belakang', label: '📌 2D Belakang' },
+                { id: 'metode_pola', label: '📈 Pola/Bandar' },
+                { id: 'metode_ekor_mati', label: '🚫 Ekor Mati' },
+                { id: 'metode_kepala_mati', label: '🚫 Kepala Mati' },
+                { id: 'metode_ganjil_genap', label: '🔴 Ganjil/Genap' },
+                { id: 'metode_besar_kecil', label: '🔵 Besar/Kecil' },
+                { id: 'metode_history', label: '📜 Data Historis' }
+            ];
+
+            // History (simulasi 10 result terakhir)
+            let historyData = ['4321', '5678', '9012', '3456', '7890', '2345', '6789', '0123', '4567', '8901'];
+
+            // ============================================================
+            // 2. ELEMEN
+            // ============================================================
             const resultInput = document.getElementById('resultInput');
+            const hariSelect = document.getElementById('hariSelect');
+            const pasaranSelect = document.getElementById('pasaranSelect');
             const processBtn = document.getElementById('processBtn');
             const randomBtn = document.getElementById('randomBtn');
+            const historyBtn = document.getElementById('historyBtn');
             const resetBtn = document.getElementById('resetBtn');
             const tbody = document.getElementById('predictionBody');
+            const totalPrediksi = document.getElementById('totalPrediksi');
+            const methodGrid = document.getElementById('methodGrid');
+            const selectAllBtn = document.getElementById('selectAllBtn');
+            const deselectAllBtn = document.getElementById('deselectAllBtn');
 
-            // ----- FUNGSI BANTU -----
+            // State checkbox
+            let activeMethods = new Set();
+
+            // ============================================================
+            // 3. FUNGSI BANTU
+            // ============================================================
+
             function pad4(str) {
                 let s = str.replace(/\D/g, '');
                 if (s.length === 0) s = '0';
@@ -294,113 +538,510 @@
                 return hasil;
             }
 
-            function tessonAngka(angka4) {
+            function tessonAngka(angka4, offset = 0) {
                 const lastTwo = angka4.slice(-2);
                 if (lastTwo.length !== 2) return '?';
-                const sum = parseInt(lastTwo[0]) + parseInt(lastTwo[1]);
+                const sum = parseInt(lastTwo[0]) + parseInt(lastTwo[1]) + offset;
                 return (sum % 10) + 1;
             }
 
-            // ----- GENERATE 10 PREDIKSI dari result -----
-            function generatePredictions(result4) {
-                const raw = pad4(result4);
-                const prediksi = [];
-
-                // 1. Angka asli (result)
-                prediksi.push(raw);
-
-                // 2. Mistik dari result
-                prediksi.push(mistikAngka(raw));
-
-                // 3. Index dari result
-                prediksi.push(indexAngka(raw));
-
-                // 4. Operasi matematika sederhana
-                const asInt = parseInt(raw);
-                // +1, -1, +10, -10, +100, -100, +1000, -1000 (mod 10000)
-                const operasi = [1, -1, 10, -10, 100, -100, 1000, -1000];
-                for (let op of operasi) {
-                    let val = (asInt + op) % 10000;
-                    if (val < 0) val += 10000;
-                    let str = val.toString().padStart(4, '0');
-                    // Hindari duplikat
-                    if (!prediksi.includes(str)) {
-                        prediksi.push(str);
-                    }
-                }
-
-                // 5. Jika masih kurang dari 10, tambahkan random
-                while (prediksi.length < 10) {
-                    let rand = '';
-                    for (let i = 0; i < 4; i++) rand += Math.floor(Math.random() * 10);
-                    if (!prediksi.includes(rand)) {
-                        prediksi.push(rand);
-                    }
-                }
-
-                // Potong ke 10
-                return prediksi.slice(0, 10);
+            function getShio(angka4) {
+                const lastDigit = parseInt(angka4.slice(-1));
+                const shioName = SHIO_MAP[lastDigit] || 'Tikus';
+                return shioName;
             }
 
-            // ----- RENDER TABLE -----
-            function renderPredictions(predList) {
-                if (!predList || predList.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="5" class="no-data">Tidak ada prediksi</td></tr>`;
+            function getShioAngka(shioName) {
+                return SHIO_ANGKA[shioName] || SHIO_ANGKA['Tikus'];
+            }
+
+            function getNeptu(hari, pasaran) {
+                return (NEPTU_HARI[hari] || 0) + (NEPTU_PASARAN[pasaran] || 0);
+            }
+
+            function getStatus(angka, allPredictions) {
+                // Status berdasarkan frekuensi di semua prediksi
+                const count = allPredictions.filter(a => a === angka).length;
+                if (count > 3) return { label: '🔥 HOT', class: 'status-hot' };
+                if (count === 0) return { label: '❄️ COLD', class: 'status-cold' };
+                return { label: '⚪ NORMAL', class: '' };
+            }
+
+            // ============================================================
+            // 4. GENERATE PREDIKSI DENGAN SEMUA METODE
+            // ============================================================
+
+            function generateAllPredictions(result4, hari, pasaran, history) {
+                const raw = pad4(result4);
+                const allPreds = [];
+                const metodeMap = {};
+
+                // --- 1. Angka Asli ---
+                if (activeMethods.has('metode_asli')) {
+                    allPreds.push(raw);
+                    metodeMap[raw] = (metodeMap[raw] || []).concat(['Asli']);
+                }
+
+                // --- 2. Mistik ---
+                if (activeMethods.has('metode_mistik')) {
+                    const m = mistikAngka(raw);
+                    allPreds.push(m);
+                    metodeMap[m] = (metodeMap[m] || []).concat(['Mistik']);
+                }
+
+                // --- 3. Index ---
+                if (activeMethods.has('metode_index')) {
+                    const idx = indexAngka(raw);
+                    allPreds.push(idx);
+                    metodeMap[idx] = (metodeMap[idx] || []).concat(['Index']);
+                }
+
+                // --- 4. Tesson ---
+                if (activeMethods.has('metode_tesson')) {
+                    const t = tessonAngka(raw, 0);
+                    const tStr = t.toString().padStart(4, '0');
+                    allPreds.push(tStr);
+                    metodeMap[tStr] = (metodeMap[tStr] || []).concat(['Tesson']);
+                }
+
+                // --- 5. Tesson 2 ---
+                if (activeMethods.has('metode_tesson2')) {
+                    const t2 = tessonAngka(raw, 2);
+                    const t2Str = t2.toString().padStart(4, '0');
+                    allPreds.push(t2Str);
+                    metodeMap[t2Str] = (metodeMap[t2Str] || []).concat(['Tesson2']);
+                }
+
+                // --- 6. Tesson 3 ---
+                if (activeMethods.has('metode_tesson3')) {
+                    const t3 = tessonAngka(raw, 5);
+                    const t3Str = t3.toString().padStart(4, '0');
+                    allPreds.push(t3Str);
+                    metodeMap[t3Str] = (metodeMap[t3Str] || []).concat(['Tesson3']);
+                }
+
+                // --- 7. Kop + Kepala + Ekor ---
+                if (activeMethods.has('metode_kop_kepala_ekor')) {
+                    const as = parseInt(raw[0]);
+                    const kop = parseInt(raw[1]);
+                    const kepala = parseInt(raw[2]);
+                    const ekor = parseInt(raw[3]);
+                    const kke = [
+                        pad4((kop + kepala + ekor).toString()),
+                        pad4((as + kop + ekor).toString()),
+                        pad4((as + kepala + ekor).toString()),
+                        pad4((as + kop + kepala).toString())
+                    ];
+                    for (let k of kke) {
+                        if (!allPreds.includes(k)) {
+                            allPreds.push(k);
+                            metodeMap[k] = (metodeMap[k] || []).concat(['Kop+Kep+Ekor']);
+                        }
+                    }
+                }
+
+                // --- 8. 2D ---
+                if (activeMethods.has('metode_2d')) {
+                    const twoD = raw.slice(-2);
+                    const variants = [
+                        pad4(twoD + '00'),
+                        pad4('00' + twoD),
+                        pad4(twoD + twoD),
+                        pad4(twoD + '12'),
+                        pad4('12' + twoD)
+                    ];
+                    for (let v of variants) {
+                        if (!allPreds.includes(v)) {
+                            allPreds.push(v);
+                            metodeMap[v] = (metodeMap[v] || []).concat(['2D']);
+                        }
+                    }
+                }
+
+                // --- 9. 3D ---
+                if (activeMethods.has('metode_3d')) {
+                    const threeD = raw.slice(0, 3);
+                    const variants = [
+                        pad4(threeD + '0'),
+                        pad4(threeD + '5'),
+                        pad4('0' + threeD),
+                        pad4('5' + threeD)
+                    ];
+                    for (let v of variants) {
+                        if (!allPreds.includes(v)) {
+                            allPreds.push(v);
+                            metodeMap[v] = (metodeMap[v] || []).concat(['3D']);
+                        }
+                    }
+                }
+
+                // --- 10. Shio ---
+                if (activeMethods.has('metode_shio')) {
+                    const shioName = getShio(raw);
+                    const shioAngka = getShioAngka(shioName);
+                    for (let sa of shioAngka.slice(0, 4)) {
+                        const str = sa.toString().padStart(4, '0');
+                        if (!allPreds.includes(str)) {
+                            allPreds.push(str);
+                            metodeMap[str] = (metodeMap[str] || []).concat(['Shio']);
+                        }
+                    }
+                }
+
+                // --- 11. Neptu ---
+                if (activeMethods.has('metode_neptu')) {
+                    const neptu = getNeptu(hari, pasaran);
+                    const neptuStr = neptu.toString().padStart(4, '0');
+                    if (!allPreds.includes(neptuStr)) {
+                        allPreds.push(neptuStr);
+                        metodeMap[neptuStr] = (metodeMap[neptuStr] || []).concat(['Neptu']);
+                    }
+                    // +1 -1
+                    for (let i = -2; i <= 2; i++) {
+                        const val = (neptu + i) % 100;
+                        const str = val.toString().padStart(4, '0');
+                        if (!allPreds.includes(str)) {
+                            allPreds.push(str);
+                            metodeMap[str] = (metodeMap[str] || []).concat(['Neptu']);
+                        }
+                    }
+                }
+
+                // --- 12. A1-A2-B1-B2 (pola silang) ---
+                if (activeMethods.has('metode_a1a2b1b2')) {
+                    const a1 = parseInt(raw[0]);
+                    const a2 = parseInt(raw[1]);
+                    const b1 = parseInt(raw[2]);
+                    const b2 = parseInt(raw[3]);
+                    const pola = [
+                        pad4((a1 + b1).toString() + (a2 + b2).toString()),
+                        pad4((a1 + b2).toString() + (a2 + b1).toString()),
+                        pad4((a1 + a2).toString() + (b1 + b2).toString())
+                    ];
+                    for (let p of pola) {
+                        if (!allPreds.includes(p)) {
+                            allPreds.push(p);
+                            metodeMap[p] = (metodeMap[p] || []).concat(['A1-A2-B1-B2']);
+                        }
+                    }
+                }
+
+                // --- 13. Statistik/Frekuensi (dari history) ---
+                if (activeMethods.has('metode_statistik')) {
+                    const freq = {};
+                    for (let h of history) {
+                        freq[h] = (freq[h] || 0) + 1;
+                    }
+                    const sorted = Object.keys(freq).sort((a, b) => freq[b] - freq[a]);
+                    for (let s of sorted.slice(0, 5)) {
+                        if (!allPreds.includes(s)) {
+                            allPreds.push(s);
+                            metodeMap[s] = (metodeMap[s] || []).concat(['Statistik']);
+                        }
+                    }
+                }
+
+                // --- 14. AI (Angka Jadi) ---
+                if (activeMethods.has('metode_ai')) {
+                    const asInt = parseInt(raw);
+                    for (let i = -5; i <= 5; i++) {
+                        const val = (asInt + i * 7) % 10000;
+                        const str = val.toString().padStart(4, '0');
+                        if (!allPreds.includes(str)) {
+                            allPreds.push(str);
+                            metodeMap[str] = (metodeMap[str] || []).concat(['AI']);
+                            if (allPreds.length > 20) break;
+                        }
+                    }
+                }
+
+                // --- 15. 7×24 ---
+                if (activeMethods.has('metode_7x24')) {
+                    const asInt = parseInt(raw);
+                    const val = (asInt * 7 + 24) % 10000;
+                    const str = val.toString().padStart(4, '0');
+                    if (!allPreds.includes(str)) {
+                        allPreds.push(str);
+                        metodeMap[str] = (metodeMap[str] || []).concat(['7×24']);
+                    }
+                }
+
+                // --- 16. 4×24 ---
+                if (activeMethods.has('metode_4x24')) {
+                    const asInt = parseInt(raw);
+                    const val = (asInt * 4 + 24) % 10000;
+                    const str = val.toString().padStart(4, '0');
+                    if (!allPreds.includes(str)) {
+                        allPreds.push(str);
+                        metodeMap[str] = (metodeMap[str] || []).concat(['4×24']);
+                    }
+                }
+
+                // --- 17. 2D Depan ---
+                if (activeMethods.has('metode_2d_depan')) {
+                    const depan = raw.slice(0, 2);
+                    for (let i = 0; i <= 99; i++) {
+                        const str = depan + i.toString().padStart(2, '0');
+                        if (!allPreds.includes(str)) {
+                            allPreds.push(str);
+                            metodeMap[str] = (metodeMap[str] || []).concat(['2D Depan']);
+                            if (allPreds.length > 30) break;
+                        }
+                    }
+                }
+
+                // --- 18. 2D Belakang ---
+                if (activeMethods.has('metode_2d_belakang')) {
+                    const belakang = raw.slice(-2);
+                    for (let i = 0; i <= 99; i++) {
+                        const str = i.toString().padStart(2, '0') + belakang;
+                        if (!allPreds.includes(str)) {
+                            allPreds.push(str);
+                            metodeMap[str] = (metodeMap[str] || []).concat(['2D Belakang']);
+                            if (allPreds.length > 30) break;
+                        }
+                    }
+                }
+
+                // --- 19. Pola/Bandar ---
+                if (activeMethods.has('metode_pola')) {
+                    const asInt = parseInt(raw);
+                    const pola = [asInt + 1, asInt - 1, asInt + 11, asInt - 11, asInt + 101, asInt - 101];
+                    for (let p of pola) {
+                        const val = ((p % 10000) + 10000) % 10000;
+                        const str = val.toString().padStart(4, '0');
+                        if (!allPreds.includes(str)) {
+                            allPreds.push(str);
+                            metodeMap[str] = (metodeMap[str] || []).concat(['Pola']);
+                        }
+                    }
+                }
+
+                // --- 20. Ekor Mati ---
+                if (activeMethods.has('metode_ekor_mati')) {
+                    const ekor = parseInt(raw[3]);
+                    const mati = (ekor + 5) % 10;
+                    // generate angka dengan ekor != mati
+                    for (let i = 0; i <= 99; i++) {
+                        for (let j = 0; j <= 9; j++) {
+                            if (j === mati) continue;
+                            const str = i.toString().padStart(3, '0') + j;
+                            if (!allPreds.includes(str)) {
+                                allPreds.push(str);
+                                metodeMap[str] = (metodeMap[str] || []).concat(['Ekor Mati']);
+                                if (allPreds.length > 35) break;
+                            }
+                        }
+                        if (allPreds.length > 35) break;
+                    }
+                }
+
+                // --- 21. Kepala Mati ---
+                if (activeMethods.has('metode_kepala_mati')) {
+                    const kepala = parseInt(raw[2]);
+                    const mati = (kepala + 5) % 10;
+                    for (let i = 0; i <= 9; i++) {
+                        if (i === mati) continue;
+                        for (let j = 0; j <= 99; j++) {
+                            const str = i + j.toString().padStart(3, '0');
+                            if (!allPreds.includes(str)) {
+                                allPreds.push(str);
+                                metodeMap[str] = (metodeMap[str] || []).concat(['Kepala Mati']);
+                                if (allPreds.length > 35) break;
+                            }
+                        }
+                        if (allPreds.length > 35) break;
+                    }
+                }
+
+                // --- 22. Ganjil/Genap ---
+                if (activeMethods.has('metode_ganjil_genap')) {
+                    const asInt = parseInt(raw);
+                    for (let i = -3; i <= 3; i++) {
+                        const val = asInt + i;
+                        if (val % 2 === 0) {
+                            const str = val.toString().padStart(4, '0');
+                            if (!allPreds.includes(str)) {
+                                allPreds.push(str);
+                                metodeMap[str] = (metodeMap[str] || []).concat(['Genap']);
+                            }
+                        }
+                    }
+                }
+
+                // --- 23. Besar/Kecil ---
+                if (activeMethods.has('metode_besar_kecil')) {
+                    const asInt = parseInt(raw);
+                    for (let i = -5; i <= 5; i++) {
+                        const val = asInt + i * 10;
+                        const str = val.toString().padStart(4, '0');
+                        if (!allPreds.includes(str)) {
+                            allPreds.push(str);
+                            metodeMap[str] = (metodeMap[str] || []).concat(['Besar/Kecil']);
+                            if (allPreds.length > 40) break;
+                        }
+                    }
+                }
+
+                // --- 24. Data Historis ---
+                if (activeMethods.has('metode_history')) {
+                    for (let h of history) {
+                        if (!allPreds.includes(h)) {
+                            allPreds.push(h);
+                            metodeMap[h] = (metodeMap[h] || []).concat(['History']);
+                        }
+                    }
+                }
+
+                return { preds: allPreds, metodeMap: metodeMap };
+            }
+
+            // ============================================================
+            // 5. RENDER TABLE
+            // ============================================================
+
+            function renderPredictions(result4, hari, pasaran, history) {
+                const { preds, metodeMap } = generateAllPredictions(result4, hari, pasaran, history);
+
+                // Ambil maks 50 prediksi
+                const display = preds.slice(0, 50);
+                totalPrediksi.textContent = display.length;
+
+                if (display.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="9" class="no-data">Tidak ada prediksi. Aktifkan minimal 1 metode.</td></tr>`;
                     return;
                 }
 
                 let html = '';
-                predList.forEach((angka, idx) => {
+                display.forEach((angka, idx) => {
                     const mistik = mistikAngka(angka);
                     const index = indexAngka(angka);
-                    const tesson = tessonAngka(angka);
+                    const tesson = tessonAngka(angka, 0);
+                    const shio = getShio(angka);
+                    const neptu = getNeptu(hari, pasaran);
+                    const status = getStatus(angka, display);
+                    const metode = (metodeMap[angka] || ['-']).join(', ');
+
                     html += `
                         <tr>
                             <td>${idx + 1}</td>
-                            <td class="col-main">${angka}</td>
+                            <td class="col-main" onclick="navigator.clipboard.writeText('${angka}')" style="cursor:pointer;">${angka}</td>
                             <td class="col-mistik">${mistik}</td>
                             <td class="col-index">${index}</td>
                             <td class="col-tesson">${tesson}</td>
+                            <td class="col-shio">${shio}</td>
+                            <td class="col-neptu">${neptu}</td>
+                            <td><span class="status ${status.class}">${status.label}</span></td>
+                            <td style="font-size:0.7rem; color:#a7a9be; max-width:120px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${metode}">${metode}</td>
                         </tr>
                     `;
                 });
                 tbody.innerHTML = html;
             }
 
-            // ----- PROSES DARI INPUT -----
-            function processFromInput() {
-                const val = resultInput.value.trim();
-                const angka = pad4(val);
-                resultInput.value = angka; // tampilkan yg sudah diformat
-                const preds = generatePredictions(angka);
-                renderPredictions(preds);
+            // ============================================================
+            // 6. BUILD CHECKBOX
+            // ============================================================
+
+            function buildCheckboxes() {
+                methodGrid.innerHTML = `
+                    <div class="all-toggle">
+                        <button id="selectAllBtn">✅ Pilih Semua</button>
+                        <button id="deselectAllBtn">❌ Hapus Semua</button>
+                    </div>
+                `;
+                METODE_LIST.forEach(m => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `
+                        <label>
+                            <input type="checkbox" value="${m.id}" ${activeMethods.has(m.id) ? 'checked' : ''} />
+                            ${m.label}
+                        </label>
+                    `;
+                    methodGrid.appendChild(div);
+                });
+
+                // Re-bind event listener ke checkbox
+                document.querySelectorAll('#methodGrid input[type="checkbox"]').forEach(cb => {
+                    cb.addEventListener('change', function() {
+                        if (this.checked) {
+                            activeMethods.add(this.value);
+                        } else {
+                            activeMethods.delete(this.value);
+                        }
+                    });
+                });
+
+                // Select all
+                document.getElementById('selectAllBtn').addEventListener('click', function() {
+                    document.querySelectorAll('#methodGrid input[type="checkbox"]').forEach(cb => {
+                        cb.checked = true;
+                        activeMethods.add(cb.value);
+                    });
+                });
+
+                // Deselect all
+                document.getElementById('deselectAllBtn').addEventListener('click', function() {
+                    document.querySelectorAll('#methodGrid input[type="checkbox"]').forEach(cb => {
+                        cb.checked = false;
+                        activeMethods.delete(cb.value);
+                    });
+                });
             }
 
-            // ----- GENERATE RANDOM (acak murni) -----
-            function generateRandom() {
+            // ============================================================
+            // 7. EVENT & INIT
+            // ============================================================
+
+            function process() {
+                const val = resultInput.value.trim();
+                const angka = pad4(val);
+                resultInput.value = angka;
+                const hari = hariSelect.value;
+                const pasaran = pasaranSelect.value;
+                renderPredictions(angka, hari, pasaran, historyData);
+            }
+
+            function randomProcess() {
                 let rand = '';
                 for (let i = 0; i < 4; i++) rand += Math.floor(Math.random() * 10);
                 resultInput.value = rand;
-                const preds = generatePredictions(rand);
-                renderPredictions(preds);
+                process();
             }
 
-            // ----- RESET -----
+            function historyProcess() {
+                // Ambil random dari history
+                const randHistory = historyData[Math.floor(Math.random() * historyData.length)];
+                resultInput.value = randHistory;
+                process();
+            }
+
             function resetAll() {
                 resultInput.value = '0000';
-                tbody.innerHTML = `<tr><td colspan="5" class="no-data">Masukkan angka result lalu klik Proses</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="9" class="no-data">Masukkan angka result lalu klik Proses</td></tr>`;
+                totalPrediksi.textContent = '0';
             }
 
-            // ----- EVENT -----
-            processBtn.addEventListener('click', processFromInput);
-            randomBtn.addEventListener('click', generateRandom);
+            // Inisialisasi: aktifkan semua metode
+            METODE_LIST.forEach(m => activeMethods.add(m.id));
+
+            // Build checkbox
+            buildCheckboxes();
+
+            // Event
+            processBtn.addEventListener('click', process);
+            randomBtn.addEventListener('click', randomProcess);
+            historyBtn.addEventListener('click', historyProcess);
             resetBtn.addEventListener('click', resetAll);
 
-            // Auto generate pertama kali
-            // Biarkan kosong, user harus klik Proses atau Random
-            // Tapi kita isi default 1234 lalu proses
+            // Enter key
+            resultInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') process();
+            });
+
+            // Auto generate pertama
             resultInput.value = '1234';
-            processFromInput();
+            process();
         })();
     </script>
 
