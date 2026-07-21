@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prediktor 4D - Segala Metode</title>
+    <title>Prediktor 4D - Histori Manual</title>
     <style>
         * {
             box-sizing: border-box;
@@ -46,8 +46,6 @@
             border-bottom: 1px dashed #f1c40f30;
             padding-bottom: 12px;
         }
-
-        /* Input */
         .input-area {
             display: flex;
             gap: 12px;
@@ -81,11 +79,8 @@
             color: #f0ece3;
             font-size: 0.95rem;
             outline: none;
-            min-width: 120px;
+            min-width: 100px;
             cursor: pointer;
-        }
-        .input-area select:focus {
-            border-color: #f1c40f;
         }
         .input-area button {
             flex: 1;
@@ -140,8 +135,68 @@
             background: #c0392b !important;
             border-color: #e74c3c !important;
         }
+        .btn-success {
+            background: #27ae60 !important;
+            border-color: #2ecc71 !important;
+        }
 
-        /* Checkbox metode */
+        /* History area */
+        .history-area {
+            background: #0d1020;
+            border-radius: 20px;
+            padding: 14px 16px;
+            border: 1px solid #1f263b;
+            margin: 10px 0 16px;
+        }
+        .history-area label {
+            display: block;
+            font-size: 0.85rem;
+            color: #a7a9be;
+            margin-bottom: 6px;
+        }
+        .history-area textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 16px;
+            border: 1px solid #3d455f;
+            background: #0b0e1a;
+            color: #f0ece3;
+            font-size: 0.95rem;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+            min-height: 70px;
+            outline: none;
+        }
+        .history-area textarea:focus {
+            border-color: #f1c40f;
+        }
+        .history-area .history-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .history-area .history-controls button {
+            padding: 8px 18px;
+            border-radius: 30px;
+            border: 1px solid #3d455f;
+            background: #20273d;
+            color: #f0ece3;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .history-area .history-controls button:hover {
+            background: #2a3350;
+        }
+        .history-area .history-info {
+            font-size: 0.75rem;
+            color: #6a7290;
+            margin-top: 6px;
+        }
+        .history-area .history-info strong {
+            color: #f7e05e;
+        }
+
         .method-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -194,7 +249,6 @@
             color: #fff;
         }
 
-        /* Tabel hasil */
         .table-wrap {
             overflow-x: auto;
             border-radius: 20px;
@@ -256,7 +310,7 @@
         .col-neptu {
             color: #ffa502;
         }
-        .col-status {
+        .status {
             font-size: 0.7rem;
             padding: 2px 8px;
             border-radius: 30px;
@@ -270,9 +324,9 @@
             background: #3498db40;
             color: #6fcbff;
         }
-        .status-mati {
+        .status-normal {
             background: #2d343650;
-            color: #636e72;
+            color: #bcc0d0;
         }
         .no-data {
             text-align: center;
@@ -280,7 +334,6 @@
             color: #6a7290;
             font-style: italic;
         }
-
         .footer-note {
             font-size: 0.7rem;
             text-align: center;
@@ -292,7 +345,6 @@
         .footer-note span {
             color: #f1c40f90;
         }
-
         .badge-count {
             background: #f1c40f30;
             color: #f7e05e;
@@ -312,10 +364,6 @@
             .input-area input {
                 font-size: 1rem;
                 letter-spacing: 3px;
-                padding: 12px;
-            }
-            .input-area select {
-                font-size: 0.8rem;
                 padding: 12px;
             }
             .method-grid {
@@ -346,9 +394,9 @@
     <div class="container">
         <div class="card">
             <h1>🧿 PREDIKTOR 4D</h1>
-            <div class="sub">Segala Metode • 14+ Rumus • 10-50 Angka Prediksi</div>
+            <div class="sub">Dengan Input Histori Manual • 24 Metode • 10-50 Angka</div>
 
-            <!-- Input -->
+            <!-- Input Result -->
             <div class="input-area">
                 <input type="text" id="resultInput" placeholder="0000" maxlength="4" value="1234" />
                 <select id="hariSelect">
@@ -370,6 +418,19 @@
                 <button id="processBtn">▶ Proses</button>
             </div>
 
+            <!-- History Input -->
+            <div class="history-area">
+                <label>📜 DATA HISTORI (pisahkan dengan koma, spasi, atau enter) — <span style="color:#f7e05e;">Min 5 angka</span></label>
+                <textarea id="historyInput" placeholder="1234, 5678, 9012, 3456, 7890, 2345, 6789, 0123, 4567, 8901"></textarea>
+                <div class="history-controls">
+                    <button class="btn-success" id="saveHistoryBtn">💾 Simpan History</button>
+                    <button id="defaultHistoryBtn">📋 Contoh History (10)</button>
+                    <button id="clearHistoryBtn">🗑️ Kosongkan</button>
+                    <span style="margin-left:auto;font-size:0.8rem;color:#6a7290;" id="historyCount">Jumlah: 0</span>
+                </div>
+                <div class="history-info" id="historyInfo">💡 History tersimpan di browser (localStorage).</div>
+            </div>
+
             <!-- Tombol -->
             <div class="btn-group">
                 <button class="btn-primary" id="randomBtn">🎲 Random</button>
@@ -383,13 +444,12 @@
                     <button id="selectAllBtn">✅ Pilih Semua</button>
                     <button id="deselectAllBtn">❌ Hapus Semua</button>
                 </div>
-                <!-- akan diisi JS -->
             </div>
 
             <!-- Hasil -->
             <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-top:6px;">
                 <span style="font-size:0.9rem; color:#a7a9be;">Total Prediksi: <strong id="totalPrediksi" style="color:#f7e05e;">0</strong></span>
-                <span style="font-size:0.8rem; color:#6a7290;">Klik kolom angka untuk salin</span>
+                <span style="font-size:0.8rem; color:#6a7290;">Klik angka untuk salin</span>
             </div>
 
             <div class="table-wrap">
@@ -425,27 +485,12 @@
             // 1. KAMUS & DATA
             // ============================================================
 
-            // Mistik
             const MISTIK_MAP = { '0': '8', '1': '6', '2': '4', '3': '7', '4': '2', '5': '9', '6': '1', '7': '3', '8': '0',
                 '9': '5' };
-            // Index
             const INDEX_MAP = { '0': '5', '1': '6', '2': '7', '3': '8', '4': '9', '5': '0', '6': '1', '7': '2', '8': '3',
                 '9': '4' };
-
-            // Shio (tahun 2024 = Naga, 2025 = Ular, dst) - mapping digit terakhir tahun
-            const SHIO_MAP = {
-                '0': 'Tikus',
-                '1': 'Kerbau',
-                '2': 'Macan',
-                '3': 'Kelinci',
-                '4': 'Naga',
-                '5': 'Ular',
-                '6': 'Kuda',
-                '7': 'Kambing',
-                '8': 'Monyet',
-                '9': 'Ayam'
-            };
-            // Angka shio (masing-masing shio punya 2 angka main)
+            const SHIO_MAP = { '0': 'Tikus', '1': 'Kerbau', '2': 'Macan', '3': 'Kelinci', '4': 'Naga', '5': 'Ular', '6': 'Kuda',
+                '7': 'Kambing', '8': 'Monyet', '9': 'Ayam' };
             const SHIO_ANGKA = {
                 'Tikus': [2, 14, 26, 38, 50, 62, 74, 86, 98],
                 'Kerbau': [1, 13, 25, 37, 49, 61, 73, 85, 97],
@@ -460,12 +505,11 @@
                 'Anjing': [11, 23, 35, 47, 59, 71, 83, 95],
                 'Babi': [12, 24, 36, 48, 60, 72, 84, 96]
             };
-
-            // Neptu hari & pasaran
             const NEPTU_HARI = { 'Senin': 4, 'Selasa': 3, 'Rabu': 7, 'Kamis': 8, 'Jumat': 6, 'Sabtu': 9, 'Minggu': 5 };
             const NEPTU_PASARAN = { 'Legi': 5, 'Pahing': 9, 'Pon': 7, 'Wage': 4, 'Kliwon': 8 };
 
-            // Daftar metode
+            const DEFAULT_HISTORY = ['1234', '5678', '9012', '3456', '7890', '2345', '6789', '0123', '4567', '8901'];
+
             const METODE_LIST = [
                 { id: 'metode_asli', label: '🔵 Angka Asli' },
                 { id: 'metode_mistik', label: '🔮 Mistik' },
@@ -493,12 +537,17 @@
                 { id: 'metode_history', label: '📜 Data Historis' }
             ];
 
-            // History (simulasi 10 result terakhir)
-            let historyData = ['4321', '5678', '9012', '3456', '7890', '2345', '6789', '0123', '4567', '8901'];
+            // ============================================================
+            // 2. STATE
+            // ============================================================
+
+            let activeMethods = new Set();
+            let historyData = [];
 
             // ============================================================
-            // 2. ELEMEN
+            // 3. ELEMEN
             // ============================================================
+
             const resultInput = document.getElementById('resultInput');
             const hariSelect = document.getElementById('hariSelect');
             const pasaranSelect = document.getElementById('pasaranSelect');
@@ -512,11 +561,15 @@
             const selectAllBtn = document.getElementById('selectAllBtn');
             const deselectAllBtn = document.getElementById('deselectAllBtn');
 
-            // State checkbox
-            let activeMethods = new Set();
+            const historyInput = document.getElementById('historyInput');
+            const saveHistoryBtn = document.getElementById('saveHistoryBtn');
+            const defaultHistoryBtn = document.getElementById('defaultHistoryBtn');
+            const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+            const historyCount = document.getElementById('historyCount');
+            const historyInfo = document.getElementById('historyInfo');
 
             // ============================================================
-            // 3. FUNGSI BANTU
+            // 4. FUNGSI BANTU
             // ============================================================
 
             function pad4(str) {
@@ -547,8 +600,7 @@
 
             function getShio(angka4) {
                 const lastDigit = parseInt(angka4.slice(-1));
-                const shioName = SHIO_MAP[lastDigit] || 'Tikus';
-                return shioName;
+                return SHIO_MAP[lastDigit] || 'Tikus';
             }
 
             function getShioAngka(shioName) {
@@ -560,15 +612,14 @@
             }
 
             function getStatus(angka, allPredictions) {
-                // Status berdasarkan frekuensi di semua prediksi
                 const count = allPredictions.filter(a => a === angka).length;
                 if (count > 3) return { label: '🔥 HOT', class: 'status-hot' };
                 if (count === 0) return { label: '❄️ COLD', class: 'status-cold' };
-                return { label: '⚪ NORMAL', class: '' };
+                return { label: '⚪ NORMAL', class: 'status-normal' };
             }
 
             // ============================================================
-            // 4. GENERATE PREDIKSI DENGAN SEMUA METODE
+            // 5. GENERATE PREDIKSI
             // ============================================================
 
             function generateAllPredictions(result4, hari, pasaran, history) {
@@ -696,7 +747,6 @@
                         allPreds.push(neptuStr);
                         metodeMap[neptuStr] = (metodeMap[neptuStr] || []).concat(['Neptu']);
                     }
-                    // +1 -1
                     for (let i = -2; i <= 2; i++) {
                         const val = (neptu + i) % 100;
                         const str = val.toString().padStart(4, '0');
@@ -707,7 +757,7 @@
                     }
                 }
 
-                // --- 12. A1-A2-B1-B2 (pola silang) ---
+                // --- 12. A1-A2-B1-B2 ---
                 if (activeMethods.has('metode_a1a2b1b2')) {
                     const a1 = parseInt(raw[0]);
                     const a2 = parseInt(raw[1]);
@@ -726,8 +776,8 @@
                     }
                 }
 
-                // --- 13. Statistik/Frekuensi (dari history) ---
-                if (activeMethods.has('metode_statistik')) {
+                // --- 13. Statistik/Frekuensi ---
+                if (activeMethods.has('metode_statistik') && history.length > 0) {
                     const freq = {};
                     for (let h of history) {
                         freq[h] = (freq[h] || 0) + 1;
@@ -741,7 +791,7 @@
                     }
                 }
 
-                // --- 14. AI (Angka Jadi) ---
+                // --- 14. AI ---
                 if (activeMethods.has('metode_ai')) {
                     const asInt = parseInt(raw);
                     for (let i = -5; i <= 5; i++) {
@@ -780,12 +830,12 @@
                 // --- 17. 2D Depan ---
                 if (activeMethods.has('metode_2d_depan')) {
                     const depan = raw.slice(0, 2);
-                    for (let i = 0; i <= 99; i++) {
+                    for (let i = 0; i <= 20; i++) {
                         const str = depan + i.toString().padStart(2, '0');
                         if (!allPreds.includes(str)) {
                             allPreds.push(str);
                             metodeMap[str] = (metodeMap[str] || []).concat(['2D Depan']);
-                            if (allPreds.length > 30) break;
+                            if (allPreds.length > 35) break;
                         }
                     }
                 }
@@ -793,12 +843,12 @@
                 // --- 18. 2D Belakang ---
                 if (activeMethods.has('metode_2d_belakang')) {
                     const belakang = raw.slice(-2);
-                    for (let i = 0; i <= 99; i++) {
+                    for (let i = 0; i <= 20; i++) {
                         const str = i.toString().padStart(2, '0') + belakang;
                         if (!allPreds.includes(str)) {
                             allPreds.push(str);
                             metodeMap[str] = (metodeMap[str] || []).concat(['2D Belakang']);
-                            if (allPreds.length > 30) break;
+                            if (allPreds.length > 35) break;
                         }
                     }
                 }
@@ -821,18 +871,17 @@
                 if (activeMethods.has('metode_ekor_mati')) {
                     const ekor = parseInt(raw[3]);
                     const mati = (ekor + 5) % 10;
-                    // generate angka dengan ekor != mati
-                    for (let i = 0; i <= 99; i++) {
-                        for (let j = 0; j <= 9; j++) {
+                    let count = 0;
+                    for (let i = 0; i <= 20 && count < 10; i++) {
+                        for (let j = 0; j <= 9 && count < 10; j++) {
                             if (j === mati) continue;
                             const str = i.toString().padStart(3, '0') + j;
                             if (!allPreds.includes(str)) {
                                 allPreds.push(str);
                                 metodeMap[str] = (metodeMap[str] || []).concat(['Ekor Mati']);
-                                if (allPreds.length > 35) break;
+                                count++;
                             }
                         }
-                        if (allPreds.length > 35) break;
                     }
                 }
 
@@ -840,17 +889,17 @@
                 if (activeMethods.has('metode_kepala_mati')) {
                     const kepala = parseInt(raw[2]);
                     const mati = (kepala + 5) % 10;
-                    for (let i = 0; i <= 9; i++) {
+                    let count = 0;
+                    for (let i = 0; i <= 9 && count < 10; i++) {
                         if (i === mati) continue;
-                        for (let j = 0; j <= 99; j++) {
+                        for (let j = 0; j <= 20 && count < 10; j++) {
                             const str = i + j.toString().padStart(3, '0');
                             if (!allPreds.includes(str)) {
                                 allPreds.push(str);
                                 metodeMap[str] = (metodeMap[str] || []).concat(['Kepala Mati']);
-                                if (allPreds.length > 35) break;
+                                count++;
                             }
                         }
-                        if (allPreds.length > 35) break;
                     }
                 }
 
@@ -878,7 +927,7 @@
                         if (!allPreds.includes(str)) {
                             allPreds.push(str);
                             metodeMap[str] = (metodeMap[str] || []).concat(['Besar/Kecil']);
-                            if (allPreds.length > 40) break;
+                            if (allPreds.length > 45) break;
                         }
                     }
                 }
@@ -897,13 +946,12 @@
             }
 
             // ============================================================
-            // 5. RENDER TABLE
+            // 6. RENDER
             // ============================================================
 
             function renderPredictions(result4, hari, pasaran, history) {
                 const { preds, metodeMap } = generateAllPredictions(result4, hari, pasaran, history);
 
-                // Ambil maks 50 prediksi
                 const display = preds.slice(0, 50);
                 totalPrediksi.textContent = display.length;
 
@@ -925,7 +973,7 @@
                     html += `
                         <tr>
                             <td>${idx + 1}</td>
-                            <td class="col-main" onclick="navigator.clipboard.writeText('${angka}')" style="cursor:pointer;">${angka}</td>
+                            <td class="col-main" onclick="navigator.clipboard.writeText('${angka}')" style="cursor:pointer;" title="Klik untuk salin">${angka}</td>
                             <td class="col-mistik">${mistik}</td>
                             <td class="col-index">${index}</td>
                             <td class="col-tesson">${tesson}</td>
@@ -940,7 +988,98 @@
             }
 
             // ============================================================
-            // 6. BUILD CHECKBOX
+            // 7. HISTORY MANAGEMENT
+            // ============================================================
+
+            function loadHistory() {
+                const saved = localStorage.getItem('totoHistory');
+                if (saved) {
+                    try {
+                        const parsed = JSON.parse(saved);
+                        if (Array.isArray(parsed) && parsed.length > 0) {
+                            historyData = parsed;
+                            historyInput.value = parsed.join(', ');
+                            updateHistoryCount();
+                            return;
+                        }
+                    } catch (e) {}
+                }
+                // Default
+                historyData = [...DEFAULT_HISTORY];
+                historyInput.value = DEFAULT_HISTORY.join(', ');
+                updateHistoryCount();
+                saveHistoryToStorage();
+            }
+
+            function saveHistoryToStorage() {
+                localStorage.setItem('totoHistory', JSON.stringify(historyData));
+                updateHistoryCount();
+                historyInfo.textContent = '✅ History tersimpan di localStorage.';
+                setTimeout(() => {
+                    historyInfo.textContent = '💡 History tersimpan di browser (localStorage).';
+                }, 3000);
+            }
+
+            function updateHistoryCount() {
+                historyCount.textContent = `Jumlah: ${historyData.length}`;
+                if (historyData.length < 5) {
+                    historyCount.style.color = '#e74c3c';
+                    historyInfo.textContent = '⚠️ Minimal 5 angka histori agar statistik bermakna!';
+                } else {
+                    historyCount.style.color = '#7bed9f';
+                    historyInfo.textContent = '✅ ' + historyData.length + ' angka histori tersimpan.';
+                }
+            }
+
+            function parseHistoryInput(text) {
+                // Pisahkan dengan koma, spasi, atau enter
+                const raw = text.split(/[,;\s\n]+/).filter(s => s.trim().length > 0);
+                const result = [];
+                for (let s of raw) {
+                    const cleaned = s.replace(/\D/g, '');
+                    if (cleaned.length === 4) {
+                        result.push(cleaned);
+                    } else if (cleaned.length > 4) {
+                        result.push(cleaned.slice(0, 4));
+                    }
+                }
+                return result;
+            }
+
+            function saveHistoryFromInput() {
+                const text = historyInput.value;
+                const parsed = parseHistoryInput(text);
+                if (parsed.length === 0) {
+                    historyInfo.textContent = '⚠️ Tidak ada angka valid (harus 4 digit).';
+                    return;
+                }
+                if (parsed.length < 5) {
+                    historyInfo.textContent = `⚠️ Minimal 5 angka (sekarang ${parsed.length}). Tetap disimpan? Gunakan tombol Simpan.`;
+                }
+                historyData = parsed;
+                saveHistoryToStorage();
+                historyInput.value = parsed.join(', ');
+                updateHistoryCount();
+            }
+
+            function setDefaultHistory() {
+                historyData = [...DEFAULT_HISTORY];
+                historyInput.value = DEFAULT_HISTORY.join(', ');
+                saveHistoryToStorage();
+                updateHistoryCount();
+            }
+
+            function clearHistory() {
+                if (confirm('Hapus semua histori?')) {
+                    historyData = [];
+                    historyInput.value = '';
+                    saveHistoryToStorage();
+                    updateHistoryCount();
+                }
+            }
+
+            // ============================================================
+            // 8. BUILD CHECKBOX
             // ============================================================
 
             function buildCheckboxes() {
@@ -961,7 +1100,6 @@
                     methodGrid.appendChild(div);
                 });
 
-                // Re-bind event listener ke checkbox
                 document.querySelectorAll('#methodGrid input[type="checkbox"]').forEach(cb => {
                     cb.addEventListener('change', function() {
                         if (this.checked) {
@@ -972,7 +1110,6 @@
                     });
                 });
 
-                // Select all
                 document.getElementById('selectAllBtn').addEventListener('click', function() {
                     document.querySelectorAll('#methodGrid input[type="checkbox"]').forEach(cb => {
                         cb.checked = true;
@@ -980,7 +1117,6 @@
                     });
                 });
 
-                // Deselect all
                 document.getElementById('deselectAllBtn').addEventListener('click', function() {
                     document.querySelectorAll('#methodGrid input[type="checkbox"]').forEach(cb => {
                         cb.checked = false;
@@ -990,7 +1126,7 @@
             }
 
             // ============================================================
-            // 7. EVENT & INIT
+            // 9. EVENT
             // ============================================================
 
             function process() {
@@ -1010,7 +1146,10 @@
             }
 
             function historyProcess() {
-                // Ambil random dari history
+                if (historyData.length === 0) {
+                    alert('History kosong! Silakan input histori terlebih dahulu.');
+                    return;
+                }
                 const randHistory = historyData[Math.floor(Math.random() * historyData.length)];
                 resultInput.value = randHistory;
                 process();
@@ -1022,8 +1161,15 @@
                 totalPrediksi.textContent = '0';
             }
 
-            // Inisialisasi: aktifkan semua metode
+            // ============================================================
+            // 10. INIT
+            // ============================================================
+
+            // Aktifkan semua metode
             METODE_LIST.forEach(m => activeMethods.add(m.id));
+
+            // Load history
+            loadHistory();
 
             // Build checkbox
             buildCheckboxes();
@@ -1034,7 +1180,10 @@
             historyBtn.addEventListener('click', historyProcess);
             resetBtn.addEventListener('click', resetAll);
 
-            // Enter key
+            saveHistoryBtn.addEventListener('click', saveHistoryFromInput);
+            defaultHistoryBtn.addEventListener('click', setDefaultHistory);
+            clearHistoryBtn.addEventListener('click', clearHistory);
+
             resultInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') process();
             });
